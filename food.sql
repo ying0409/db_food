@@ -20,8 +20,6 @@ create table shop(
 	s_id		varchar(5),
 	m_id		varchar(5),
 	name		varchar(10) not null,
-	time_id		varchar(5),
-	menu_id		varchar(5),
 	style		varchar(10),
 	phone		varchar(10),
 	website		varchar(30),
