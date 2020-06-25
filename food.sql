@@ -18,7 +18,7 @@ create table manager(
 
 create table shop(
 	s_id		varchar(5),
-	m_id		varchar(5),
+	m_id		varchar(5) not null,
 	name		varchar(10) not null,
 	style		varchar(10),
 	phone		varchar(10),
@@ -28,7 +28,7 @@ create table shop(
 	avestar     numeric(1,0) default 0,
 	primary key(s_id),
 	foreign key (m_id) references manager(m_id)
-		on delete set null
+		on delete cascade
 ) ENGINE=INNODB;
 
 create table discount(
