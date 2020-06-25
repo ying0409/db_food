@@ -24,7 +24,8 @@ create table shop(
 	phone		varchar(10),
 	website		varchar(30),
 	address		varchar(30),
-	aveprice	numeric(4,0),
+	aveprice	numeric(4,0) default 0,
+	avestar     numeric(1,0) default 0,
 	primary key(s_id),
 	foreign key (m_id) references manager(m_id)
 		on delete set null
