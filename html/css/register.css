@@ -1,0 +1,13 @@
+html { 
+    visibility: hidden; 
+}
+
+body { 
+    padding: 2rem;  
+}
+
+.registerbox{
+    margin:0px auto;
+    width: 60%;
+    min-width: 500px;
+}

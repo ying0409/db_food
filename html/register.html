@@ -1,0 +1,77 @@
+<!--200625 version-1.0-->
+<html lang="zh-Hant-TW">
+
+<head>
+    <!--W3.CSS-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--Bootstrap Vue-->
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@2.15.0/dist/bootstrap-vue.css">
+    <!--Bootstrap,Vue script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+</head>
+
+<body>
+
+    <body>
+        <div class="registerBox">
+            <div id="navapp">
+                <b-nav tabs align="center">
+                    <b-nav-item href="signin.html">Sign In</b-nav-item>
+                    <b-nav-item active href="register.html">Register</b-nav-item>
+                </b-nav>
+            </div>
+            <div id="registerapp" style="margin-top: 1rem;">
+                <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+                    <b-form-group id="input-group-1" label="Your Name:" label-for="input-1">
+                        <b-form-input id="input-1" v-model="form.name" required placeholder="Enter name"></b-form-input>
+                    </b-form-group>
+
+                    <b-form-group id="input-group-2" label="Account Number:" label-for="input-2">
+                        <b-form-input id="input-2" v-model="form.account" required placeholder="Enter account">
+                        </b-form-input>
+                    </b-form-group>
+
+                    <b-form-group id="input-group-3" label="Password:" label-for="input-3">
+                        <b-form-input id="input-3" v-model="form.password" required placeholder="Enter password">
+                        </b-form-input>
+                    </b-form-group>
+
+                    <b-form-group id="input-group-4" label="Email address:" label-for="input-4"
+                        description="We'll never share your email with anyone else.">
+                        <b-form-input id="input-4" v-model="form.email" type="email" required placeholder="Enter email">
+                        </b-form-input>
+                    </b-form-group>
+
+                    <b-button type="submit" variant="primary">Summit</b-button>
+                </b-form>
+            </div>
+        </div>
+    </body>
+
+    <!--Optional JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <!--polyfill-->
+    <script src='http://unpkg.com/babel-polyfill/dist/polyfill.min.js'></script>
+    <!--bootstrap-vue-->
+    <script src='http://unpkg.com/vue@2.6.11/dist/vue.min.js'></script>
+    <script src='http://unpkg.com/bootstrap-vue@2.15.0/dist/bootstrap-vue.js'></script>
+    <script src='http://unpkg.com/bootstrap-vue@2.15.0/dist/bootstrap-vue-icons.js'></script>
+    <!--singin link-->
+    <script src="js/register.js"></script>
+</body>
+
+</html>
