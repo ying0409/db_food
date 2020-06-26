@@ -24,29 +24,28 @@ if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
 
-$_input = 7;
+$_input = 5;
 
 $query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-		echo "<b>$row[name]</b><br>";
+		echo "<h1><b>$row[name]</b></h1><br>";
 	}
 }
 echo '<img src = "hotpotIN.jpg"</img><br><br>';
 echo '<b>相關資訊</b><br><br>';
 
 
-echo '<table>';
+echo '<table >';
 
 $query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
-if ($result->num_rows > 0) {
-	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-	echo '<tr>';
-		echo '<td><a href = "$row[website]">Website  </a></td>';
-		echo "<td>$row[website]<br></td>";		
-	echo '</tr>';
+if ($result->num_rows > 0) 
+{
+	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) 
+	{
+		echo '<a href = " ' . $row[website] . ' ">Website</a><br>';
 	}
 }
 
@@ -84,6 +83,7 @@ if ($result->num_rows > 0) {
 	}
 }
 
+
 $query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
@@ -95,6 +95,16 @@ if ($result->num_rows > 0) {
 	}
 }
 echo '</table>';
-?>
+	
+	
+?>	
 	</ul>
+	<td><a href="menu.php?">菜單</a></td>
+	<td><a href="time.php?">營業時間</a></td>
+	<td><a href="discount.php?">優惠</a></td>
+	<td><a href="comment.php?">評論</a></td>
+	
+	
+	
+	
 </body>
