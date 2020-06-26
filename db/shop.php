@@ -36,12 +36,17 @@ if ($result->num_rows > 0) {
 echo '<img src = "hotpotIN.jpg"</img><br><br>';
 echo '<b>相關資訊</b><br><br>';
 
+
+echo '<table>';
+
 $query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-		echo '<a href = "$row[website]">Website</a><br>';
-		echo "$row[website]<br>";
+	echo '<tr>';
+		echo '<td><a href = "$row[website]">Website  </a></td>';
+		echo "<td>$row[website]<br></td>";		
+	echo '</tr>';
 	}
 }
 
@@ -50,9 +55,10 @@ $result = $link->query($query);
 //$result = mysql_query($query) or die('Query failed: ' . mysql_error());
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-		printf("Style:");
-		echo "$row[style]";
-		echo "<br>";
+	echo '<tr>';
+		echo '<td>Style  </td>';
+		echo "<td>$row[style]<br></td>";
+	echo '</tr>';
 	}
 }
 
@@ -60,9 +66,10 @@ $query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-		printf("Phone:");
-	echo "$row[phone]";
-	echo "<br>";
+	echo '<tr>';
+		echo '<td>Phone  </td>';
+		echo "<td>$row[phone]<br></td>";
+	echo '</tr>';
 	}
 }
 
@@ -70,9 +77,10 @@ $query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-		printf("Address:");
-	echo "$row[address]";
-	echo "<br>";
+	echo '<tr>';
+		echo '<td>Address  </td>';
+		echo "<td>$row[address]<br></td>";
+	echo '</tr>';
 	}
 }
 
@@ -80,12 +88,13 @@ $query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-		printf("Star:");
-	echo "$row[star]";
-	echo "<br>";
+	echo '<tr>';
+		echo '<td>Star </td>';
+		echo "<td>$row[star]<br></td>";
+	echo '</tr>';
 	}
 }
+echo '</table>';
 ?>
 	</ul>
-	
 </body>
