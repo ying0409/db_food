@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>學生資料庫管理系統</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+	
+	<h1 align="center">註冊帳號</h1>
+	<form action="create_account.php" method="post">	
+	  <table width="500" border="1" bgcolor="B6F8FD" align="center">
+	  	<tr>
+		  <th>註冊類別</th>
+		  <td bgcolor="#FFFFFF"><input  type="radio" name="identity" value='1'>
+			管理者
+			<input  type="radio" name="identity" value='0' >
+			消費者</td>
+		</tr>
+		<tr>
+		  <th>姓名</th>
+		  <td bgcolor="#FFFFFF"><input type="text" name="name"  /></td>
+		</tr>
+		<tr>
+		  <th>帳號</th>
+		  <td bgcolor="#FFFFFF"><input type="text" name="account" /></td>
+		</tr>
+		<tr>
+		  <th>密碼</th>
+		  <td bgcolor="#FFFFFF"><input type="text" name="password"  /></td>
+		</tr>
+		<tr>
+		  <th>信箱</th>
+		  <td bgcolor="#FFFFFF"><input type="text" name="email"  /></td>
+		</tr>
+		<tr>
+		  <th colspan="2"><input type="submit" value="註冊"/></th>
+		</tr>
+	  </table>
+	</form>
+	
+</body>
+	
+</html>
