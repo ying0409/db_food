@@ -23,7 +23,10 @@ if (!$link->set_charset("utf8")) {
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
-$query = 'SELECT * FROM shop where s_id = 4';
+
+$_input = 7;
+
+$query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
@@ -32,7 +35,8 @@ if ($result->num_rows > 0) {
 }
 echo '<img src = "hotpotIN.jpg"</img><br><br>';
 echo '<b>相關資訊</b><br><br>';
-$query = 'SELECT * FROM shop where s_id = 4';
+
+$query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
@@ -41,13 +45,8 @@ if ($result->num_rows > 0) {
 	}
 }
 
-//echo '<a href = "https://reurl.cc/5ly93z" >Website</a><br>';
-$input=5;
-$query = 'SELECT * FROM shop where s_id = 4';
+$query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
-
-
-
 //$result = mysql_query($query) or die('Query failed: ' . mysql_error());
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
@@ -56,7 +55,8 @@ if ($result->num_rows > 0) {
 		echo "<br>";
 	}
 }
-$query = 'SELECT * FROM shop where s_id = 4';
+
+$query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
@@ -66,7 +66,7 @@ if ($result->num_rows > 0) {
 	}
 }
 
-$query = 'SELECT * FROM shop where s_id = 4';
+$query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
 	}
 }
 
-$query = 'SELECT * FROM shop where s_id = 4';
+$query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
