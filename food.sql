@@ -22,6 +22,7 @@ create table shop(
 	s_name		varchar(10) not null,
 	style		varchar(10),
 	phone		varchar(10),
+	photo		varchar(10),
 	website		varchar(30),
 	address		varchar(30),
 	aveprice	numeric(4,0) default 0,
@@ -86,7 +87,7 @@ create table menu(
 	s_id 		varchar(5),
 	d_name		varchar(10),
 	price     	numeric(4,0),
-	primary key(s_id,name),
+	primary key(s_id,d_name),
 	foreign key (s_id) references shop(s_id)
 		on delete cascade
 ) ENGINE=INNODB;
