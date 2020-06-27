@@ -1,0 +1,25 @@
+<html>
+
+<head>
+	<title>美食地圖</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body onload="init()">
+
+	<h1 align="center" style="margin-top: 25px">刪除店家</h1>
+    <h2 align='center'><img style="margin-top: 15px" src="FOOD.gif" /></h2>
+    <h3 align='center'>確定要刪除店家嗎?</h3>
+    <!--
+    <button><a href="m_delete_shop.php "style="text-decoration:none;">刪除</a></button>
+    <button><a href="m_shop.php "style="text-decoration:none;">取消</a></button>
+    -->    
+    <form action="manager_delete_shop.php" method="post" align='center'>
+        <input type="submit" name="delete" value="刪除"/>
+		<input type ="button" onclick="javascript:location.href='manager_shop.php'" value="取消">
+    </form>
+
+
+</body>
+
+</html>
