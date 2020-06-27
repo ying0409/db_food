@@ -17,15 +17,18 @@ if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
 
-$_input = 5;
+$_input = $_GET["num"];
 echo "Menu<br>";
-$query = "SELECT * FROM shop NATURAL JOIN menu where s_id=$_input";
+$query = "SELECT * FROM shop NATURAL JOIN menu where s_id= $_input";
 $result = $link->query($query);
+echo '<table >';
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-		echo "$row[food] ";
-		echo "$row[price]<br>";
+	echo '<tr>';
+		echo "<td>$row[d_name]</td>";
+		echo "<td>$row[price]<br></td>";
+	echo '</tr>';
 	}
 }
-
+echo '</table >';
 ?>

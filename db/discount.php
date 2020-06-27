@@ -17,7 +17,7 @@ if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
 
-$_input = 5;
+$_input = $_GET["num"];
 echo "Discount<br>";
 $query = "SELECT content from shop NATURAL JOIN provide NATURAL JOIN discount WHERE s_id = $_input;";
 $result = $link->query($query);

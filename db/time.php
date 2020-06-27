@@ -17,7 +17,7 @@ if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
 
-$_input = 5;
+$_input = $_GET["num"];
 echo "Time<br>";
 
 ?>
