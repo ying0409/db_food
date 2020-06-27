@@ -1,6 +1,6 @@
 create table customer(
 	c_id		varchar(5) ,
-	name		varchar(10) not null,
+	c_name		varchar(10) not null,
 	account	varchar (10) not null,
 	password 	varchar (10) not null,
 	email     varchar(35),
@@ -9,7 +9,7 @@ create table customer(
 
 create table manager(
 	m_id		varchar(5) ,
-	name		varchar(10) not null,
+	m_name		varchar(10) not null,
 	account	varchar (10) not null,
 	password 	varchar (10) not null,
 	email     varchar(35),
@@ -19,7 +19,7 @@ create table manager(
 create table shop(
 	s_id		varchar(5),
 	m_id		varchar(5) not null,
-	name		varchar(10) not null,
+	s_name		varchar(10) not null,
 	style		varchar(10),
 	phone		varchar(10),
 	website		varchar(30),
@@ -84,7 +84,7 @@ create table time(
 
 create table menu(
 	s_id 		varchar(5),
-	name		varchar(10),
+	d_name		varchar(10),
 	price     	numeric(4,0),
 	primary key(s_id,name),
 	foreign key (s_id) references shop(s_id)
