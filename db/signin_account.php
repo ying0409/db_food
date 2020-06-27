@@ -31,7 +31,7 @@ if (isset($_POST['identity']) && isset($_POST['account']) && isset($_POST['passw
 		$file=fopen("my_id.txt","w");
 		fwrite($file,$row[c_id]);
 		fclose($file);
-		echo "<h2 align='center'><font color='#41B3B4'>登入成功<br> <a href='customer_main.html'><font color='#2A7071 '>開始你/妳的美食地圖</a></font></h2>";
+		echo "<h2 align='center'><font color='#41B3B4'>登入成功<br> <a href='customer_main.php'><font color='#2A7071 '>開始你/妳的美食地圖</a></font></h2>";
 	}
 	else {
 		echo "<h2 align='center'><font color='#41B3B4'>登入失敗<br> <a href='signin_new.html'>返回登入畫面</a></font></h2>";

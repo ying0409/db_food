@@ -59,6 +59,6 @@ if (isset($_POST['identity']) &&  isset($_POST['name']) && isset($_POST['account
 }else{
 	echo "資料不完全";
 }
-				
+
 ?>
 

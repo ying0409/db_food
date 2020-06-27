@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "foodmap11";
+$password = "cindy88409";
 $dbname = "db_food";
 
 // Connecting to and selecting a MySQL database
