@@ -36,8 +36,8 @@ if (isset($_POST['identity']) &&  isset($_POST['name']) && isset($_POST['account
 		$count=fgets($file);
 		fclose($file);
 	}
-	if($identity==1)$insert_sql = "INSERT INTO manager (m_id,name,account,password,email)VALUES('$count','$name','$account','$password','$email')";	// ******** update your personal settings ******** 
-	if($identity==0)$insert_sql = "INSERT INTO customer (c_id,name,account,password,email)VALUES('$count','$name','$account','$password','$email')";	// ******** update your personal settings ******** 
+	if($identity==1)$insert_sql = "INSERT INTO manager (m_id,m_name,account,password,email)VALUES('$count','$name','$account','$password','$email')";	// ******** update your personal settings ******** 
+	if($identity==0)$insert_sql = "INSERT INTO customer (c_id,c_name,account,password,email)VALUES('$count','$name','$account','$password','$email')";	// ******** update your personal settings ******** 
 
 	if ($conn->query($insert_sql) === TRUE) {
 		$count+=1;
@@ -51,7 +51,7 @@ if (isset($_POST['identity']) &&  isset($_POST['name']) && isset($_POST['account
 			fwrite($file,$count);
 			fclose($file);
 		}
-		echo "新增成功!!<br> <a href='register_new.html'>返回主頁</a>";
+		echo "新增成功!!<br> <a href='signin_account.html'>返回主頁</a>";
 	} else {
 		echo "<h2 align='center'><font color='antiquewith'>新增失敗!!</font></h2>";
 	}

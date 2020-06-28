@@ -43,10 +43,10 @@
 	<select name="style">
 		<option value="no">------------------</option>
 　		<option value="drink">drink</option>
-　		<option value="100">hotpot</option>
-　		<option value="150">日式</option>
-　		<option value="200">美式</option>
-		<option value="250">義式</option>
+　		<option value="hotpot">hotpot</option>
+　		<option value="日式">日式</option>
+　		<option value="美式">美式</option>
+		<option value="義式">義式</option>
 	</select>
 	<th>營業時間：</th>
 	<select name="day">
@@ -80,7 +80,7 @@
 <ul>
 <?php
 
-//******** update your personal settings ******** 
+// ******** update your personal settings ******** 
 $servername = "localhost";
 $username = "root";
 $password = "cindy88409";
@@ -97,51 +97,58 @@ if (!$conn->set_charset("utf8")) {
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-$file=fopen("my_id.txt","r");
-$c_id=fgets($file);
-fclose($file);
-
-$query = "SELECT * FROM shop NATURAL JOIN favorate NATURAL JOIN customer WHERE c_id='$c_id'";
-$result = $conn->query($query);
-$count=0;
-if ($result->num_rows > 0) {
-	echo "<table align='center' width='300' border='1'>";
-	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-		if($count%2==0)echo "<tr>";
-		echo "<td><a href='customer_shop.php? num=$row[s_id]'<b>$row[s_name]</b></a></td>";
-		echo "<td><img src='$row[photo]' width='500' height='300'/></img></td>";
-		$count+=1;
-		if($count%2==0){
-			$count=0;
-			echo "</tr>";
-		}
-	}	
-	echo "</table>";
-}		
-else{
-	echo "<h2 align='center'><font color='antiquewith'>您還未收藏任何店家！以下為您提供所有店家列表...</font></h2>";
-	$query = "SELECT * FROM shop";
-	$result = $conn->query($query);
-	$count=0;
-	if ($result->num_rows > 0) {
+if (isset($_POST['s_name'])) {
+	$s_name = $_POST['s_name'];
+	$select_sql = "SELECT * FROM shop WHERE s_name='$s_name'";	// ******** update your personal settings ********	
+	$result = $conn->query($select_sql);	// Send SQL Query
+	$row = $result->fetch_assoc();
+	if ($result->num_rows > 0){
+		echo "<h3 align='center'><font color='antiquewith'>搜尋'$s_name'的搜尋結果...";
+		echo "<a href = 'customer_main.php'>回到主畫面</a></font></h3>";
 		echo "<table align='center' width='300' border='1'>";
-		while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-			if($count%2==0)echo "<tr>";
-			echo "<td><a href = 'customer_shop.php? num=$row[s_id]'><b>$row[s_name]</b></a></td>";
-			echo "<td><img src='$row[photo]' width='500' height='300'/></img></td>";
-			$count+=1;
-			if($count%2==0){
-				$count=0;
-				echo "</tr>";
-			}
-		}		
+		echo "<tr><td><a href='customer_shop.php? num=$row[s_id]' style='text-decoration:none;'><b>$row[s_name]</b></a></td>";	
+		echo "<td><img src='$row[photo]' width='500' height='300'/></img></td></tr>";
 		echo "</table>";
 	}
+	else if(isset($_POST['price'])&&isset($_POST['style'])&&isset($_POST['day'])&&isset($_POST['time'])){
+		$price = $_POST['price'];
+		$style = $_POST['style'];
+		$day = $_POST['day'];
+		$time = $_POST['time'];
+		// echo "<h3>$price</h3>";
+		// echo "<h3>$style</h3>";
+		// echo "<h3>$time</h3>";
+		if($price!=0&&$style!=null&&$day!=0&&$time!=0)$sort_sql = "SELECT DISTINCT(s_id),s_name,photo FROM shop natural join time WHERE aveprice>='$price'and aveprice<'$price'+50 and style='$style' and day='$day' and  '$time'>op_hr and '$time'+2<cl_hr ORDER BY avestar desc, aveprice asc";
+		//echo "<h3>$sort_sql</h3>";
+		$result = $conn->query($sort_sql);	// Send SQL Query
+		$count=0;
+		if ($result->num_rows > 0){
+			$upprice=$price+49;
+			$uptime=$time+2;
+			echo "<h3 align='center'><font color='antiquewith'>搜尋價格：$price~$upprice 風格：$style 營業時間：星期$day $time:00~$uptime:59的搜尋結果...";
+			echo "<a href = 'customer_main.php'>回到主畫面</a></font></h3>";
+			echo "<table align='center' width='300' border='1'>";
+			while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
+				if($count%2==0)echo "<tr>";
+				echo "<td><a href = 'customer_shop.php? num=$row[s_id]'><b>$row[s_name]</b></a></td>";
+				echo "<td><img src='$row[photo]' width='500' height='300'/></img></td>";
+				$count+=1;
+				if($count%2==0){
+					$count=0;
+					echo "</tr>";
+				}
+			}		
+			echo "</table>";
+		}
+	}
+	else {
+		echo "<body bgcolor='#FFFAFA'>";
+		echo "<h2 align='center'><font color='antiquewith'>查無此店，請重新輸入</font></h2>";
+	}
 }
-?> 
+				
+?>
 </ul>
-
 
 </body>
 </html>
