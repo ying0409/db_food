@@ -25,8 +25,6 @@
 <body bgcolor="#FFFAFA">
 <?php
 $my_id=$_GET["my_id"];
-echo "<h3>$my_id</h3>";
-//echo "<form action='select_shop.php?my_id=$my_id' method="post">";
 ?>
 	<form action='select_shop.php?my_id=<?=$my_id?>' method="post">
 	<div class="demo">
@@ -107,6 +105,7 @@ $query = "SELECT * FROM shop NATURAL JOIN favorate NATURAL JOIN customer WHERE c
 $result = $conn->query($query);
 $count=0;
 if ($result->num_rows > 0) {
+	echo "<h2 align='center'><font color='antiquewith'>您已收藏的店家列表</font></h2>";
 	echo "<table align='center' width='300' border='1'>";
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
 		if($count%2==0)echo "<tr>";

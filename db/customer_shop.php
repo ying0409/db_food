@@ -54,8 +54,28 @@ if ($result->num_rows > 0) {
 		echo '</tr>';
 		echo '<tr>';
 		echo '<td>評價：</td>';
-		echo "<td>$row[star]<br></td>";
-		echo '</tr>';
+		echo "<td>";
+		switch ($row[avestar]) {
+			case 0:
+				echo "☆☆☆☆☆";
+				break;
+			case 1:
+				echo "★☆☆☆☆";
+				break;
+			case 2:
+				echo "★★☆☆☆";
+				break;
+			case 3:
+				echo "★★★☆☆";
+				break;
+			case 4:
+				echo "★★★★☆";
+				break;
+			case 5:
+				echo "★★★★★";
+				break;
+		}
+		echo '</td></tr>';
 		echo '</table><br>';
 		echo "<button><a href='menu.php? s_id=$_input&c_id=$my_id' style='text-decoration:none;'>菜單</a></button>";
 		echo "<button><a href='time.php? s_id=$_input&c_id=$my_id' style='text-decoration:none;'>營業時間</a></button>";

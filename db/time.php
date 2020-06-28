@@ -9,7 +9,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "foodmap11";
+$password = "cindy88409";
 $dbname = "db_food";
 
 // Connecting to and selecting a MySQL database
@@ -30,9 +30,11 @@ $c_id = $_GET['c_id'];
 
 $is_exist=0;
 
+echo "<h3 align='center'><font color='antiquewith'><a href = 'customer_shop.php? num=$s_id&my_id=$c_id'>回到店家資訊</a></font></h3>";
 //echo "<h1 ><font color='antiquewith'>營業時間<br> </font></h1>";
 $query = "SELECT * FROM shop NATURAL JOIN time where s_id=$s_id";
 $result = $link->query($query);
+
 if ($result->num_rows > 0) {
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
 		$is_exist=1;
@@ -85,23 +87,11 @@ if ($result->num_rows > 0) {
 		echo "</h3>";
 	}
 }
-
 if($is_exist===0)
 {
 	echo "<h2 align='center'><font color='antiquewith'>目前尚無資料<br> </font></h2>";
-}	
-
-echo "<h3 align='center'><button><a href='customer_shop.php? num=$s_id&c_id=$c_id' style='text-decoration:none;'>返回</a></button></h3>";
-
-
-// echo "$c_id<br>";
-//echo "$s_id<br>";
+}
 ?>
 	
 </body>
-	
 </html>
-
-
-
-
