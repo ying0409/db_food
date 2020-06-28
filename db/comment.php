@@ -9,7 +9,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "foodmap11";
+$password = "cindy88409";
 $dbname = "db_food";
 
 // Connecting to and selecting a MySQL database
@@ -71,7 +71,7 @@ echo "</table><br><br>";
 if($is_exist===0)
 {
 	echo "<h2 align='center'><font color='antiquewith'>目前尚無評論QQ<br> </font></h2>";
-	echo "<h2 align='center'><font color='antiquewith'>★歡迎留下你的珍貴意見★★<br> </font></h2>";
+	echo "<h2 align='center'><font color='antiquewith'>★歡迎留下你的珍貴意見★<br> </font></h2>";
 	echo "<h2 align='center'><font color='antiquewith'>你的意見可以讓店家更好!<br> </font></h2>";
 }
 
