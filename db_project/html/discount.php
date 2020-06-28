@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>優惠</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1 align='center'><font color='antiquewith'>現正優惠<br> </font></h1>
+<h2 align='center'><img style="margin-top: 5px" src="FOOD.gif" /></h2>
+
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "cindy88409";
+$dbname = "db_food";
+
+// Connecting to and selecting a MySQL database
+$link = new mysqli($servername, $username, $password, $dbname);
+
+
+if (!$link->set_charset("utf8")) {
+    printf("Error loading character set utf8: %s\n", $link->error);
+    exit();
+}
+
+if ($link->connect_error) {
+    die("Connection failed: " . $link->connect_error);
+} 
+
+$s_id = $_GET["s_id"];
+$c_id = $_GET['c_id'];
+
+
+$query = "SELECT content from shop NATURAL JOIN provide NATURAL JOIN discount WHERE s_id = $s_id";
+$result = $link->query($query);
+$is_exist=0;
+if ($result->num_rows > 0) {
+	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) 
+	{
+		$is_exist=1;
+		echo "<h3 align='center'>";
+		echo "$row[content] <br>";
+	}
+}
+
+if($is_exist===0)
+{
+	echo "<h2 align='center'><font color='antiquewith'>目前尚無優惠<br> </font></h2>";
+}	
+
+echo "<h3 align='center'><button><a href='customer_shop.php? num=$s_id&my_id=$c_id' style='text-decoration:none;'>返回</a></button></h3>";
+
+?>
+
+</body>
+	
+</html>
