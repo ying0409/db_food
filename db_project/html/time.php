@@ -3,8 +3,8 @@
 	<title>營業時間</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<body>
-<h1 align='center'><font color='antiquewith'>營業時間<br> </font></h1>
+<body bgcolor="#FFFAFA">
+<h1 align="center" style="margin-top: 25px">營業時間</h1>
 <h2 align='center'><img style="margin-top: 5px" src="FOOD.gif" /></h2>
 <?php
 $servername = "localhost";

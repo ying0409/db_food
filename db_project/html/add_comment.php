@@ -25,9 +25,6 @@ $c_id = $_POST['c_id'];
 // $s_id = 4;
 // $c_id = 2;
 
-echo "$c_id<br>";
-echo "$s_id<br>";
-
 if (isset($_POST['star']) && isset($_POST['content']) ) 
 {
 	$star = $_POST['star'];

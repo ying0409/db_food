@@ -52,6 +52,12 @@ $my_id=$_GET["my_id"];
 　		<option value="日式">日式</option>
 　		<option value="美式">美式</option>
 		<option value="義式">義式</option>
+		<option value="中式">中式</option>
+		<option value="韓式">韓式</option>
+		<option value="甜點">甜點</option>
+		<option value="素食">素食</option>
+		<option value="早餐">早餐</option>
+		<option value="其他">其他</option>
 	</select>
 	<th>營業時間：</th>
 	<select name="day">
@@ -67,17 +73,17 @@ $my_id=$_GET["my_id"];
 	<select name="time">
 		<option value="24">------------------</option>
 　		<option value="0">00:00~01:59</option>
-　		<option value="2">02:00~04:59</option>
-　		<option value="4">04:00~06:59</option>
-　		<option value="6">06:00~08:59</option>
-		<option value="8">08:00~10:59</option>
-		<option value="10">10:00~12:59</option>
-		<option value="12">12:00~14:59</option>
-		<option value="14">14:00~16:59</option>
-		<option value="16">16:00~18:59</option>
-		<option value="18">18:00~20:59</option>
-		<option value="20">20:00~22:59</option>
-		<option value="22">22:00~00:59</option>
+　		<option value="2">02:00~03:59</option>
+　		<option value="4">04:00~05:59</option>
+　		<option value="6">06:00~07:59</option>
+		<option value="8">08:00~09:59</option>
+		<option value="10">10:00~11:59</option>
+		<option value="12">12:00~13:59</option>
+		<option value="14">14:00~15:59</option>
+		<option value="16">16:00~17:59</option>
+		<option value="18">18:00~19:59</option>
+		<option value="20">20:00~21:59</option>
+		<option value="22">22:00~23:59</option>
 	</select>
 	</h3>
 </form>
@@ -111,7 +117,28 @@ if ($result->num_rows > 0) {
 	echo "<table align='center' width='300' border='1'>";
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
 		if($count%2==0)echo "<tr>";
-		echo "<td><a href='customer_shop.php? num=$row[s_id]&my_id=$my_id'<b>$row[s_name]</b></a></td>";
+		echo "<td align='center'><a href='customer_shop.php? num=$row[s_id]&my_id=$my_id'<b>$row[s_name]</b></a><br>";
+		switch ($row[avestar]) {
+					case 0:
+						echo "☆☆☆☆☆";
+						break;
+					case 1:
+						echo "★☆☆☆☆";
+						break;
+					case 2:
+						echo "★★☆☆☆";
+						break;
+					case 3:
+						echo "★★★☆☆";
+						break;
+					case 4:
+						echo "★★★★☆";
+						break;
+					case 5:
+						echo "★★★★★";
+						break;
+				}
+		echo "</td>";
 		echo "<td><img src='$row[photo]' width='500' height='300'/></img></td>";
 		$count+=1;
 		if($count%2==0){
@@ -130,7 +157,28 @@ else{
 		echo "<table align='center' width='300' border='1'>";
 		while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
 			if($count%2==0)echo "<tr>";
-			echo "<td><a href = 'customer_shop.php? num=$row[s_id]&my_id=$my_id'><b>$row[s_name]</b></a></td>";
+			echo "<td align='center'><a href = 'customer_shop.php? num=$row[s_id]&my_id=$my_id'><b>$row[s_name]</b></a><br>";
+			switch ($row[avestar]) {
+					case 0:
+						echo "☆☆☆☆☆";
+						break;
+					case 1:
+						echo "★☆☆☆☆";
+						break;
+					case 2:
+						echo "★★☆☆☆";
+						break;
+					case 3:
+						echo "★★★☆☆";
+						break;
+					case 4:
+						echo "★★★★☆";
+						break;
+					case 5:
+						echo "★★★★★";
+						break;
+				}
+			echo "</td>";
 			echo "<td><img src='$row[photo]' width='500' height='300'/></img></td>";
 			$count+=1;
 			if($count%2==0){

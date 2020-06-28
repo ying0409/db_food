@@ -3,8 +3,8 @@
 	<title>優惠</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<body>
-<h1 align='center'><font color='antiquewith'>現正優惠<br> </font></h1>
+<body bgcolor="#FFFAFA">
+	<h1 align="center" style="margin-top: 25px">現正優惠</h1>
 <h2 align='center'><img style="margin-top: 5px" src="FOOD.gif" /></h2>
 
 
@@ -30,6 +30,7 @@ if ($link->connect_error) {
 $s_id = $_GET["s_id"];
 $c_id = $_GET['c_id'];
 
+echo "<h3 align='center'><font color='antiquewith'><a href = 'customer_shop.php? num=$s_id&my_id=$c_id'>回到店家資訊</a></font></h3>";
 
 $query = "SELECT content from shop NATURAL JOIN provide NATURAL JOIN discount WHERE s_id = $s_id";
 $result = $link->query($query);
@@ -48,7 +49,7 @@ if($is_exist===0)
 	echo "<h2 align='center'><font color='antiquewith'>目前尚無優惠<br> </font></h2>";
 }	
 
-echo "<h3 align='center'><button><a href='customer_shop.php? num=$s_id&my_id=$c_id' style='text-decoration:none;'>返回</a></button></h3>";
+//echo "<h3 align='center'><button><a href='customer_shop.php? num=$s_id&my_id=$c_id' style='text-decoration:none;'>返回</a></button></h3>";
 
 ?>
 

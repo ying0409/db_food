@@ -22,7 +22,7 @@ create table shop(
 	s_name		varchar(10) not null,
 	style		varchar(10),
 	phone		varchar(10),
-	photo		varchar(20),
+	photo		varchar(50),
 	website		varchar(50),
 	address		varchar(30),
 	aveprice	numeric(4,0) default 0,

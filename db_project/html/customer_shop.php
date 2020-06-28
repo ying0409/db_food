@@ -33,27 +33,20 @@ $query = "SELECT * FROM shop where s_id = $_input";
 $result = $link->query($query);
 echo "<h3 align='center'><font color='antiquewith'><a href = 'customer_main.php?my_id=$my_id'>回到主畫面</a></font></h3>";
 if ($result->num_rows > 0) {
-	echo "<table align='center' width='300' border='1'>";
+	echo "<table align='center'  border='1'>";
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
 		echo "<tr><td><img src = '$row[photo]' width='500' height='300'></img>";
-		echo "<td align='center'><h1><b>★☆$row[s_name]☆★</b></h1>";
+		echo "<td align='center'><h2><b>★☆$row[s_name]☆★</b></h2>";
 		echo '<h2>相關資訊</h2>';
-		echo '<table >';
 		echo '<a href = " ' . $row[website] . ' ">Website</a>';
-		echo '<tr>';
-		echo '<td>風格：</td>';
-		echo "<td>$row[style]<br></td>";
-		echo '</tr>';
-		echo '<tr>';
-		echo '<td>電話：</td>';
-		echo "<td>$row[phone]<br></td>";
-		echo '</tr>';
-		echo '<tr>';
-		echo '<td>地址：</td>';
-		echo "<td>$row[address]<br></td>";
-		echo '</tr>';
-		echo '<tr>';
-		echo '<td>評價：</td>';
+		echo "<table>";
+		echo '<tr><td>風格：</td>';
+		echo "<td>$row[style]</td></tr>";
+		echo '<tr><td>電話：</td>';
+		echo "<td>$row[phone]</td></tr>";
+		echo '<tr><td>地址：</td>';
+		echo "<td>$row[address]</td></tr>";
+		echo '<tr><td>評價：</td>';
 		echo "<td>";
 		switch ($row[avestar]) {
 			case 0:
@@ -75,8 +68,8 @@ if ($result->num_rows > 0) {
 				echo "★★★★★";
 				break;
 		}
-		echo '</td></tr>';
-		echo '</table><br>';
+		echo "</td></table>";
+		echo '<br>';
 		echo "<button><a href='menu.php? s_id=$_input&c_id=$my_id' style='text-decoration:none;'>菜單</a></button>";
 		echo "<button><a href='time.php? s_id=$_input&c_id=$my_id' style='text-decoration:none;'>營業時間</a></button>";
 		echo "<button><a href='discount.php? s_id=$_input&c_id=$my_id' style='text-decoration:none;'>優惠</a></button>";
