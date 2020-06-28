@@ -57,10 +57,10 @@ if ($result->num_rows > 0) {
 		echo "<td>$row[star]<br></td>";
 		echo '</tr>';
 		echo '</table><br>';
-		echo "<button><a href='menu.php? num=$_input' style='text-decoration:none;'>菜單</a></button>";
-		echo "<button><a href='time.php? num=$_input' style='text-decoration:none;'>營業時間</a></button>";
-		echo "<button><a href='discount.php? num=$_input' style='text-decoration:none;'>優惠</a></button>";
-		echo "<button><a href='comment.php?  num=$_input'style='text-decoration:none;'>評論</a></button>";
+		echo "<button><a href='menu.php? s_id=$_input&c_id=$my_id' style='text-decoration:none;'>菜單</a></button>";
+		echo "<button><a href='time.php? s_id=$_input&c_id=$my_id' style='text-decoration:none;'>營業時間</a></button>";
+		echo "<button><a href='discount.php? s_id=$_input&c_id=$my_id' style='text-decoration:none;'>優惠</a></button>";
+		echo "<button><a href='comment.php?  s_id=$_input&c_id=$my_id'style='text-decoration:none;'>評論</a></button>";
 		echo "<br>";
 		$favorite_sql = "SELECT * FROM favorate where c_id = $my_id and s_id = $_input";
 		$temp = $link->query($favorite_sql);
