@@ -35,18 +35,20 @@ $my_id=$_GET["my_id"];
 	<th>價錢：</th>
 	<select name="price">
 		<option value="0">------------------</option>
-　		<option value="50">50~99</option>
-　		<option value="100">100~149</option>
-　		<option value="150">150~199</option>
-　		<option value="200">200~249</option>
-		<option value="250">250~299</option>
+　		<option value="100">0~99</option>
+　		<option value="200">100~199</option>
+　		<option value="300">200~299</option>
+　		<option value="400">300~399</option>
+		<option value="500">400~499</option>
+		<option value="600">500~599</option>
+		<option value="700">600~699</option>
 	</select>
 	<th>    </th>
 	<th>風格：</th>
 	<select name="style">
 		<option value="no">------------------</option>
-　		<option value="drink">drink</option>
-　		<option value="hotpot">hotpot</option>
+　		<option value="飲料">飲料</option>
+　		<option value="火鍋">火鍋</option>
 　		<option value="日式">日式</option>
 　		<option value="美式">美式</option>
 		<option value="義式">義式</option>

@@ -35,7 +35,7 @@ echo "<h3 align='center'><font color='antiquewith'><a href = 'customer_main.php?
 if ($result->num_rows > 0) {
 	echo "<table align='center' width='300' border='1'>";
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-		echo "<tr><td><img src = '$row[photo]' width='500' height='300'></img></td>";
+		echo "<tr><td><img src = '$row[photo]' width='500' height='300'></img>";
 		echo "<td align='center'><h1><b>★☆$row[s_name]☆★</b></h1>";
 		echo '<h2>相關資訊</h2>';
 		echo '<table >';
@@ -84,8 +84,8 @@ if ($result->num_rows > 0) {
 		echo "<br>";
 		$favorite_sql = "SELECT * FROM favorate where c_id = $my_id and s_id = $_input";
 		$temp = $link->query($favorite_sql);
-		if ($temp->num_rows > 0) echo "<button><a href='favorite.php? my_id=$my_id&num=$_input' style='text-decoration:none;'>取消收藏此店家</a></button>";
-		else echo "<button><a href='favorite.php? my_id=$my_id&num=$_input' style='text-decoration:none;'>收藏此店家</a></button>";
+		if ($temp->num_rows > 0) echo "<button><a href='favorite.php? my_id=$my_id&num=$_input' style='text-decoration:none;'>取消收藏此店家</a></button></td>";
+		else echo "<button><a href='favorite.php? my_id=$my_id&num=$_input' style='text-decoration:none;'>收藏此店家</a></button></td>";
 		echo "</td></tr>";
 	}
 	echo "</table>";
