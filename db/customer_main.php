@@ -23,7 +23,12 @@
 </style>
 </head>
 <body bgcolor="#FFFAFA">
-<form action="select_shop.php" method="post">
+<?php
+$my_id=$_GET["my_id"];
+echo "<h3>$my_id</h3>";
+//echo "<form action='select_shop.php?my_id=$my_id' method="post">";
+?>
+	<form action='select_shop.php?my_id=<?=$my_id?>' method="post">
 	<div class="demo">
     <input type="text" name='s_name' placeholder="輸入要搜尋的店家" >
     <input type="submit" value="搜尋店家">
@@ -98,18 +103,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$file=fopen("my_id.txt","r");
-$c_id=fgets($file);
-fclose($file);
-
-$query = "SELECT * FROM shop NATURAL JOIN favorate NATURAL JOIN customer WHERE c_id='$c_id'";
+$query = "SELECT * FROM shop NATURAL JOIN favorate NATURAL JOIN customer WHERE c_id=$my_id";
 $result = $conn->query($query);
 $count=0;
 if ($result->num_rows > 0) {
 	echo "<table align='center' width='300' border='1'>";
 	while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
 		if($count%2==0)echo "<tr>";
-		echo "<td><a href='customer_shop.php? num=$row[s_id]'<b>$row[s_name]</b></a></td>";
+		echo "<td><a href='customer_shop.php? num=$row[s_id]&my_id=$my_id'<b>$row[s_name]</b></a></td>";
 		echo "<td><img src='$row[photo]' width='500' height='300'/></img></td>";
 		$count+=1;
 		if($count%2==0){
@@ -128,7 +129,7 @@ else{
 		echo "<table align='center' width='300' border='1'>";
 		while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
 			if($count%2==0)echo "<tr>";
-			echo "<td><a href = 'customer_shop.php? num=$row[s_id]'><b>$row[s_name]</b></a></td>";
+			echo "<td><a href = 'customer_shop.php? num=$row[s_id]&my_id=$my_id'><b>$row[s_name]</b></a></td>";
 			echo "<td><img src='$row[photo]' width='500' height='300'/></img></td>";
 			$count+=1;
 			if($count%2==0){
@@ -141,7 +142,6 @@ else{
 }
 ?> 
 </ul>
-
 
 </body>
 </html>

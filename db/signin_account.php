@@ -28,10 +28,8 @@ if (isset($_POST['identity']) && isset($_POST['account']) && isset($_POST['passw
 	$result = $conn->query($check_sql);	// Send SQL Query
 	$row = $result->fetch_assoc();
 	if ($result->num_rows > 0) {
-		$file=fopen("my_id.txt","w");
-		fwrite($file,$row[c_id]);
-		fclose($file);
-		echo "<h2 align='center'><font color='#41B3B4'>登入成功<br> <a href='customer_main.php'><font color='#2A7071 '>開始你/妳的美食地圖</a></font></h2>";
+		if($identity==1)echo "<h2 align='center'><font color='#41B3B4'>登入成功<br> <a href='customer_main.php ? my_id=$row[m_id]'><font color='#2A7071 '>開始你/妳的美食地圖</a></font></h2>";
+		if($identity==0)echo "<h2 align='center'><font color='#41B3B4'>登入成功<br> <a href='customer_main.php ? my_id=$row[c_id]'><font color='#2A7071 '>開始你/妳的美食地圖</a></font></h2>";
 	}
 	else {
 		echo "<h2 align='center'><font color='#41B3B4'>登入失敗<br> <a href='signin_new.html'>返回登入畫面</a></font></h2>";

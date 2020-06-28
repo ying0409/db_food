@@ -97,6 +97,9 @@ if (!$conn->set_charset("utf8")) {
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+$my_id=$_GET["my_id"];
+
 if (isset($_POST['s_name'])) {
 	$s_name = $_POST['s_name'];
 	$select_sql = "SELECT * FROM shop WHERE s_name='$s_name'";	// ******** update your personal settings ********	
@@ -104,9 +107,9 @@ if (isset($_POST['s_name'])) {
 	$row = $result->fetch_assoc();
 	if ($result->num_rows > 0){
 		echo "<h3 align='center'><font color='antiquewith'>搜尋'$s_name'的搜尋結果...";
-		echo "<a href = 'customer_main.php'>回到主畫面</a></font></h3>";
+		echo "<a href = 'customer_main.php?my_id=$my_id'>回到主畫面</a></font></h3>";
 		echo "<table align='center' width='300' border='1'>";
-		echo "<tr><td><a href='customer_shop.php? num=$row[s_id]' style='text-decoration:none;'><b>$row[s_name]</b></a></td>";	
+		echo "<tr><td><a href='customer_shop.php? &my_id=$my_id&num=$row[s_id]' style='text-decoration:none;'><b>$row[s_name]</b></a></td>";	
 		echo "<td><img src='$row[photo]' width='500' height='300'/></img></td></tr>";
 		echo "</table>";
 	}
@@ -126,11 +129,11 @@ if (isset($_POST['s_name'])) {
 			$upprice=$price+49;
 			$uptime=$time+2;
 			echo "<h3 align='center'><font color='antiquewith'>搜尋價格：$price~$upprice 風格：$style 營業時間：星期$day $time:00~$uptime:59的搜尋結果...";
-			echo "<a href = 'customer_main.php'>回到主畫面</a></font></h3>";
+			echo "<a href = 'customer_main.php? my_id=$my_id'>回到主畫面</a></font></h3>";
 			echo "<table align='center' width='300' border='1'>";
 			while($row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
 				if($count%2==0)echo "<tr>";
-				echo "<td><a href = 'customer_shop.php? num=$row[s_id]'><b>$row[s_name]</b></a></td>";
+				echo "<td><a href = 'customer_shop.php? my_id=$my_id&num=$row[s_id]'><b>$row[s_name]</b></a></td>";
 				echo "<td><img src='$row[photo]' width='500' height='300'/></img></td>";
 				$count+=1;
 				if($count%2==0){
