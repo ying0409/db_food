@@ -49,10 +49,10 @@
             while(count<=7)
             {
                 value+="<tr><td>星期"+count+":</td>";
-                value+="<td><input type='text' placeholder='Hour' name='time-op_hr-"+count+"'/></td><td>:</td>";
-                value+="<td><input type='text' placeholder='Minute' name='time-op_min-"+count+"'/></td><td>~</td>";
-                value+="<td><input type='text' placeholder='Hour' name='time-cl_hr-"+count+"'/></td><td>:</td>";
-                value+="<td><input type='text' placeholder='Minute' name='time-cl_min-"+count+"'/></td></tr>";
+                value+="<td><input type='text' size='5' placeholder='Hour' name='time-op_hr-"+count+"'/></td><td>:</td>";
+                value+="<td><input type='text' size='5' placeholder='Minute' name='time-op_min-"+count+"'/></td><td>~</td>";
+                value+="<td><input type='text' size='5' placeholder='Hour' name='time-cl_hr-"+count+"'/></td><td>:</td>";
+                value+="<td><input type='text' size='5' placeholder='Minute' name='time-cl_min-"+count+"'/></td></tr>";
                 document.getElementById("add_time").innerHTML = value;
                 count+=1;
             }
@@ -96,11 +96,14 @@
                     </tr>
                     <tr>
                         <td>Photo</td>
-                        <td><input type="text"  name="photo" required="required" placeholder="輸入圖片網址"/></td>
+                        <td><input type="text"  name="photo" required="required"  maxlength="50" placeholder="輸入圖片網址"/></td>
                     </tr>
                     <tr>
                         <td>Website</td>
-                        <td><input type="text" name="website" required="required" placeholder="輸入店家網站網址"/></td>
+                        <td><input type="text" name="website" required="required"  maxlength="50" placeholder="輸入店家網站網址"/></td>
+                    </tr>
+                    <tr>
+                        <td>(短網址連結</td><td><a href="https://reurl.cc/main/tw">https://reurl.cc/main/tw</a>)</td>
                     </tr>
                     <tr>
                         <td>style</td>

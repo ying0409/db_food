@@ -73,10 +73,10 @@
         {
             while($row = mysqli_fetch_array ( $time_result, MYSQLI_ASSOC ) ) {
                 $time_value=$time_value."<tr><td>星期".$row[day].":open</td>";
-                $time_value=$time_value."<td><input type='text' value='".$row[op_hr]."' name='time-op_hr-".$row[day]."'/></td><td>:</td>";
-                $time_value=$time_value."<td><input type='text' value='".$row[op_min]."' name='time-op_min-".$row[day]."'/></td><td>~</td>";
-                $time_value=$time_value."<td><input type='text' value='".$row[cl_hr]."' name='time-cl_hr-".$row[day]."'/></td><td>:</td>";
-                $time_value=$time_value."<td><input type='text' value='".$row[cl_min]."' name='time-cl_min-".$row[day]."'/></td></tr>";
+                $time_value=$time_value."<td><input type='text' size='5' value='".$row[op_hr]."' name='time-op_hr-".$row[day]."'/></td><td>:</td>";
+                $time_value=$time_value."<td><input type='text' size='5' value='".$row[op_min]."' name='time-op_min-".$row[day]."'/></td><td>~</td>";
+                $time_value=$time_value."<td><input type='text' size='5' value='".$row[cl_hr]."' name='time-cl_hr-".$row[day]."'/></td><td>:</td>";
+                $time_value=$time_value."<td><input type='text' size='5' value='".$row[cl_min]."' name='time-cl_min-".$row[day]."'/></td></tr>";
             }
         }
 
@@ -203,11 +203,14 @@
                     </tr>
                     <tr>
                         <td>Photo</td>
-                        <td><input type="text" id="photo" name="photo" required="required" /></td>
+                        <td><input type="text" id="photo" name="photo" required="required"  maxlength="50"/></td>
                     </tr>
                     <tr>
                         <td>Website</td>
-                        <td><input type="text" id="website" name="website" required="required" /></td>
+                        <td><input type="text" id="website" name="website" required="required"  maxlength="50"/></td>
+                    </tr>
+                    <tr>
+                        <td>(短網址連結</td><td><a href="https://reurl.cc/main/tw">https://reurl.cc/main/tw</a>)</td>
                     </tr>
                     <tr>
                         <td>style</td>
