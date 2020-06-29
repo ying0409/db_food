@@ -150,6 +150,7 @@
             <h2 align='center' style="margin-top: 25px">優惠活動</h2>
             <table id="add_discount" align='center'></table>
             <div style="margin-top: 10px" align='center'><input type="button" onclick="click_add_discount()" value="新增優惠活動" disabled="disabled"/></div>
+            <h4 align='center'>(優惠活動請至：主畫面->點選"店家"->點選"編輯" 進行新增~)</h4>
 
             <hr>
             <h3 align='center'>
