@@ -45,11 +45,6 @@ if (isset($_POST['s_name']) && isset($_POST['photo']) && isset($_POST['website']
     }
     else{
         echo "error:update shop";
-        echo "<h2 align='center'><font color='antiquewith'>更新失敗!!</font></h2><br>
-        <div align='center'>
-        <a href='manager_add_shop.php? my_id=$_M_ID'><再試一次></a>
-        <a href='manager_main.php? my_id=$_M_ID'><返回></a>
-        </div>";
         $_CORRECT=FALSE;
     }
 }
@@ -70,13 +65,7 @@ while($t_count<=7)
         ('$_S_ID' ,'$t_count', '$ophr', '$opmin','$clhr','$clmin')";
         if ($conn->query($insert_time) === FALSE) {
             echo "error:update time";
-            echo "<h2 align='center'><font color='antiquewith'>更新失敗!!</font></h2><br>
-            <div align='center'>
-            <a href='manager_add_shop.php? my_id=$_M_ID'><再試一次></a>
-            <a href='manager_main.php? my_id=$_M_ID'><返回></a>
-            </div>";
             $_CORRECT=FALSE;
-            echo "<h3>$ophr</h3>";
         }
     }
     else{
